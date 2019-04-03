@@ -1,9 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+@font-face {
+  font-family: "My Custom Font";
+  src: url("/fonts/GamePlayed.otf"); }
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #0064df; }
+  font: 14px "My Custom Font", Helvetica, Arial, sans-serif;
+  background-color: #0064df;
+  text-align: center;
+  color: white; }
 
 a {
+  color: white;
+  margin: 5px;
+  text-decoration: none; }
+
+nav {
+  display: flex; }
+
+.nav-style-login {
+  font-size: calc(10px + 1vmin);
+  height: 20px;
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 10px 20px; }
+
+.nav-style-login a {
+  padding: 0 20px; }
+
+.nav-style {
+  font-size: calc(10px + 2vmin);
+  height: 40px;
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px 50px; }
+
+.buttons {
+  font-size: calc(10px + 2vmin);
+  text-align: center;
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 0 10px;
   color: white; }
+
+p {
+  margin-top: 10px; }
+
+button {
+  border: 0px solid;
+  color: white;
+  background-color: green;
+  font-family: "My Custom Font", Verdana, Tahoma;
+  font-size: calc(10px + 4vmin);
+  cursor: pointer;
+  padding: 20px;
+  border: solid 1px;
+  text-align: center;
+  box-shadow: 5px 5px 5px black; }
+
+button:hover {
+  background-color: #106633;
+  color: white;
+  transition: all 0.5s; }
+
+.canvas {
+  display: flex;
+  justify-content: center; }
+
+.container-users {
+  font-family: "My Custom Font", Verdana, Tahoma;
+  display: flex;
+  justify-content: center;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: black; }
+
+.container-users tr {
+  background-color: #ccccff;
+  padding: 5px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -37,7 +37,7 @@ class GameController {
 
         this.canvas = document.getElementById(canvasId);
         this.canvas.width = window.innerWidth/1.5;
-        this.canvas.height = window.innerHeight/1.5;
+        this.canvas.height = window.innerWidth/2.8;
         this.ctx = this.canvas.getContext("2d");
         this.fps = 60;
         /*

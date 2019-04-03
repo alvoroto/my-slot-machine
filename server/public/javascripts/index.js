@@ -10,5 +10,5 @@ function play(){
 
 window.onresize = function(event) {
     game.canvas.width = window.innerWidth/1.5;
-    game.canvas.height = window.innerHeight/1.5;
+    game.canvas.height = window.innerWidth/2.8;
 };
