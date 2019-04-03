@@ -3,6 +3,7 @@ const router  = express.Router();
 const User = require('../models/User');
 const Play = require('../models/Play');
 
+const reelNumber = 5;
 const symbolNumber = 3;
 const symbolList = [0,1,2]
 
@@ -24,11 +25,18 @@ router.get('/plays', (req, res, next)=>{
 router.get('/newPlay', (req, res, next)=>{
   
   let symbols = []
-  for(let i=0; i< symbolNumber; i++){
-      symbols.push(symbolList[Math.floor(Math.random() * symbolNumber)])
+  let newReels = []
+  for(let i=0; i<reelNumber; i++){
+    symbols = []
+    for(let j=0; j< symbolNumber; j++){
+        symbols.push(symbolList[Math.floor(Math.random() * symbolNumber)])
+    }
+    newReels.push({id:i,
+        symbols:symbols
+      })
   }
-  
-  res.status(200).json({data:{symbols}})
+
+  res.status(200).json({data:{newReels}})
   
 });
 

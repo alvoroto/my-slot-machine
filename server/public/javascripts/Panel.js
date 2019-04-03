@@ -5,9 +5,9 @@ class Panel {
         this.reels = [];
     }
 
-    draw(ctx){
+    draw(canvas, ctx){
         this.reels.forEach((reel, index)=>{
-            reel.draw(ctx, index)
+            reel.draw(canvas, ctx, index)
         })
     }
 

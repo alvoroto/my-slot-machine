@@ -26,8 +26,7 @@ class GameController {
         let symbol2 = new Symbol(1);
         let symbol3 = new Symbol(2);
         this.symbolList = [symbol1,symbol2,symbol3];
-        console.log(this.symbolList)
-        let initSymbols = [symbol1,symbol2,symbol3];
+        let initSymbols = [0,1,2];
         let reel1 = new Reel(0,initSymbols);
         let reel2 = new Reel(1,initSymbols);
         let reel3 = new Reel(2,initSymbols);
@@ -54,7 +53,7 @@ class GameController {
                 this.framesCounter = 0;
             }
 
-            this.panel.draw(this.ctx);
+            this.panel.draw(this.canvas, this.ctx);
             this.drawImages();
             this.drawPrices();
 
@@ -68,23 +67,21 @@ class GameController {
 
     play() {
         this.resetReels()
-        for(let i=0; i<this.reelNumber; i++){
-            this.panel.reels.push(this.generateRandomReel(i))
-        }
-        this.checkReward();
+       
+        this.generateRandomReel()
+    
+        //this.checkReward();
 
     }
 
     generateRandomReel(reelId){
-        let reel
         axios.get('/newPlay')
         .then(res => {
-            console.log(res.data)
-            reel = new Reel(reelId, res.data)
+            res.data.data.newReels.forEach((newReel)=>{
+                this.panel.reels.push(new Reel(newReel.id, newReel.symbols))
+            })
         })
         .catch(err => console.log(err));
-
-        return reel;
     }
 
     resetReels(){

@@ -19,7 +19,7 @@ class Symbol {
         this.imgSize = 15;
     }
 
-    draw(ctx, reelPos, symbolPos){
+    draw(canvas, ctx, reelPos, symbolPos){
         ctx.drawImage(
             this.img,
             canvas.width/100*this.imgSize*reelPos+canvas.width/100*4,
