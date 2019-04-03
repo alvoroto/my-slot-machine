@@ -12,4 +12,5 @@ class Reel {
             symbol.draw(canvas, ctx, reelPos, index)
         })
     }
+
 }

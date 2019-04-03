@@ -16,6 +16,10 @@ class GameController {
         this.frontImg.src = "./images/maquina.png";
         this.frontImgW = 88
         this.frontImgH = 50
+        this.animateReelImg = new Image();
+        this.animateReelImg.src = "./images/rueda.png";
+        this.animateReelImgW = 15;
+        this.framesCounter = 0;
        
     }
 
@@ -48,12 +52,12 @@ class GameController {
 
             this.framesCounter++;
 
-            // controlamos que frameCounter no sea superior a 10000
             if (this.framesCounter > 10000) {
                 this.framesCounter = 0;
             }
 
             this.panel.draw(this.canvas, this.ctx);
+            //this.animateReel(this.framesCounter)
             this.drawImages();
             this.drawPrices();
 
@@ -136,6 +140,19 @@ class GameController {
             this.canvas.width/100*this.frontImgH
         );
     }
+
+    animateReel(framesCounter) {
+        this.ctx.drawImage(
+            this.animateReelImg,
+            canvas.width/100*this.animateReelImgW*0,
+            framesCounter%60*50,
+            canvas.width/100*this.animateReelImgW,canvas.width/100*this.animateReelImgW*9,
+            canvas.width/100*this.animateReelImgW*0+canvas.width/100*4,
+            canvas.width/100*this.animateReelImgW*0+canvas.width/100*5,
+            canvas.width/100*this.animateReelImgW,
+            canvas.width/100*this.animateReelImgW*9
+        )
+    };
     
 
 }

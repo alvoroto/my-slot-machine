@@ -57,20 +57,27 @@ p {
 
 button {
   border: 0px solid;
-  color: white;
-  background-color: green;
   font-family: "My Custom Font", Verdana, Tahoma;
-  font-size: calc(10px + 4vmin);
+  font-size: calc(10px + 2vmin);
   cursor: pointer;
-  padding: 20px;
   border: solid 1px;
   text-align: center;
-  box-shadow: 5px 5px 5px black; }
+  padding: 5px; }
 
-button:hover {
+.buttons button:hover {
   background-color: #106633;
   color: white;
-  transition: all 0.5s; }
+  transition: all 0.5s;
+  box-shadow: 5px 5px 5px black;
+  font-size: calc(10px + 4vmin);
+  padding: 20px; }
+
+.buttons button {
+  color: white;
+  background-color: green;
+  padding: 20px;
+  box-shadow: 5px 5px 5px black;
+  font-size: calc(10px + 4vmin); }
 
 .canvas {
   display: flex;
