@@ -158,14 +158,14 @@ class GameController {
         for(var i=0; i<5; i++){
             this.ctx.drawImage(
                 this.animateReelImg,
-                canvas.width/100*this.animateReelImgW*0,
-                framesCounter%60*50+150*i,
-                canvas.width/100*this.animateReelImgW,
-                canvas.width/100*this.animateReelImgW*3,
-                canvas.width/100*this.animateReelImgW*i+canvas.width/100*3,
-                canvas.width/100*this.animateReelImgW*0+canvas.width/100*5,
-                canvas.width/100*this.animateReelImgW,
-                canvas.width/100*this.animateReelImgW*3
+                this.canvas.width/100*this.animateReelImgW*0,
+                framesCounter%50*50+150*i,
+                this.animateReelImg.width,
+                this.animateReelImg.width*3,
+                this.canvas.width/100*this.animateReelImgW*i+canvas.width/100*4,
+                this.canvas.width/100*this.animateReelImgW*0+canvas.width/100*5,
+                this.canvas.width/100*this.animateReelImgW,
+                this.canvas.width/100*this.animateReelImgW*3
             )
         }
     };
