@@ -20,6 +20,11 @@ class GameController {
         this.animateReelImg.src = "./images/rueda.png";
         this.animateReelImgW = 15;
         this.framesCounter = 0;
+        this.enableAnimateReel = false;
+        this.countAnimateReel=0;
+        this.animateReelLong=80;
+        this.countAnimatePrice=0;
+        this.animatePriceLong=80;
        
     }
 
@@ -57,9 +62,22 @@ class GameController {
             }
 
             this.panel.draw(this.canvas, this.ctx);
-            //this.animateReel(this.framesCounter)
+            if(this.enableAnimateReel && this.countAnimateReel<this.animateReelLong){
+                this.countAnimateReel++;
+                this.animateReel(this.framesCounter)
+                this.countAnimatePrice=0;
+            }else{
+                this.countAnimateReel=0;
+                this.enableAnimateReel=false;
+            }
+
             this.drawImages();
-            this.drawPrices();
+
+            if(!this.enableAnimateReel && this.countAnimatePrice<this.animatePriceLong){
+                this.countAnimatePrice++;
+                this.drawPrices();
+                document.getElementById("reward").innerHTML = this.panel.reward;
+            }
 
         }.bind(this), 1000 / this.fps);
     }
@@ -71,11 +89,9 @@ class GameController {
 
     play() {
         this.resetReels()
-       
+        this.enableAnimateReel=true;
         this.generateRandomReel()
     
-        //this.checkReward();
-
     }
 
     generateRandomReel(reelId){
@@ -114,9 +130,6 @@ class GameController {
                     }
             }
         })
-
-        document.getElementById("reward").innerHTML = this.panel.reward;
-
         
     }
     drawPrices(){
@@ -142,16 +155,19 @@ class GameController {
     }
 
     animateReel(framesCounter) {
-        this.ctx.drawImage(
-            this.animateReelImg,
-            canvas.width/100*this.animateReelImgW*0,
-            framesCounter%60*50,
-            canvas.width/100*this.animateReelImgW,canvas.width/100*this.animateReelImgW*9,
-            canvas.width/100*this.animateReelImgW*0+canvas.width/100*4,
-            canvas.width/100*this.animateReelImgW*0+canvas.width/100*5,
-            canvas.width/100*this.animateReelImgW,
-            canvas.width/100*this.animateReelImgW*9
-        )
+        for(var i=0; i<5; i++){
+            this.ctx.drawImage(
+                this.animateReelImg,
+                canvas.width/100*this.animateReelImgW*0,
+                framesCounter%60*50+150*i,
+                canvas.width/100*this.animateReelImgW,
+                canvas.width/100*this.animateReelImgW*3,
+                canvas.width/100*this.animateReelImgW*i+canvas.width/100*3,
+                canvas.width/100*this.animateReelImgW*0+canvas.width/100*5,
+                canvas.width/100*this.animateReelImgW,
+                canvas.width/100*this.animateReelImgW*3
+            )
+        }
     };
     
 
