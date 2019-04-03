@@ -1,9 +1,21 @@
 class Symbol {
-    constructor(id, name, src){
+    constructor(id){
         this.id = id;
-        this.name = name;
         this.img = new Image();
-        this.img.src = src;
+        if(id == 0){
+            this.name = "sandia";
+            this.img.src = "./images/sandia.png";
+        }else if(id == 1){
+            this.name = "cereza";
+            this.img.src = "./images/cereza.png";
+        }else if(id == 2){
+            this.name = "limon";
+            this.img.src = "./images/limon.png";
+        }else{
+            this.name = "";
+            this.img = new Image();
+        }
+       
         this.imgSize = 15;
     }
 
