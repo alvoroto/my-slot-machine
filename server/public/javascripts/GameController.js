@@ -80,6 +80,7 @@ class GameController {
             res.data.data.newReels.forEach((newReel)=>{
                 this.panel.reels.push(new Reel(newReel.id, newReel.symbols))
             })
+            this.checkReward();
         })
         .catch(err => console.log(err));
     }

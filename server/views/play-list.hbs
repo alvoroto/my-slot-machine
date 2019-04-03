@@ -1,0 +1,23 @@
+<div class="contain-center">
+  <h1>Plays List</h1>
+    <div class="container-users">
+        <table border="1">
+             <tr>
+                <th>ID Usuario</th>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>Jugada</th>
+                <th>Premio</th>
+            </tr>
+            {{#each plays}}
+                <tr>
+                    <td>{{this.player.id}}</td>
+                    <td>{{this.player.username}}</td>
+                    <td>{{this.created_at}}</td>
+                    <td>{{this.combination}}</td>
+                    <td>{{this.prize}}</td>
+                </tr>
+            {{/each}} 
+        </table>
+  </div>
+</div>  
